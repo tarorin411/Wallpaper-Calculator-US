@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wallpaper Calculator - How Many Rolls Do I Need? | Pattern Repeat Calculator</title>
+    <meta name="description"
+        content="Calculate how much wallpaper you need for your room. Enter wall dimensions and pattern repeat to get accurate results. Accounts for waste and pattern matching. Free tool for DIYers and professionals.">
+    <meta name="keywords"
+        content="wallpaper calculator,rolls needed,pattern repeat,how much wallpaper,wall covering,DIY wallpaper">
+
+    <meta property="og:title" content="Wallpaper Calculator - How Many Rolls Do I Need?">
+    <meta property="og:description"
+        content="Calculate wallpaper needed instantly! Accounts for pattern repeat and waste.">
+    <meta property="og:type" content="website">
+
+    <!-- AEO: WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Wallpaper Calculator",
+        "description": "Calculate how much wallpaper you need based on wall dimensions and pattern repeat. Free online tool for DIY and professional wallpaper installation.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Automatic wallpaper calculation",
+            "Pattern repeat consideration",
+            "Waste factor included",
+            "Mobile-friendly design"
+        ]
+    }
+    </script>
+
+    <!-- AEO: FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I calculate how much wallpaper I need?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "To calculate wallpaper needed: divide wall width by wallpaper width (typically 20.5 inches for US rolls) to get number of strips, then multiply by wall height plus 4 inches for trimming. For pattern wallpaper, round up to the next pattern repeat. Example: For a 12ft wide, 8ft tall wall, you need about 7 strips × 100 inches = 700 inches, or about 2-3 double rolls."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is pattern repeat in wallpaper?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pattern repeat is the distance between where the pattern starts and where it repeats. When hanging patterned wallpaper, you need to match patterns between strips, which creates waste. For example, with a 21-inch repeat, you may need to cut strips longer to align the pattern. Solid or textured wallpapers have no repeat waste."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does one roll of wallpaper cover?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A standard US double roll covers approximately 56 square feet (27 inches wide × 33 feet long). A single roll covers about 28 square feet. European rolls are typically 20.5 inches wide × 33 feet. Always account for 10-15% waste for trimming and pattern matching."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- AEO: HowTo Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Calculate Wallpaper Needed",
+        "description": "Step-by-step guide to calculate how much wallpaper you need for your project",
+        "totalTime": "PT1M",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Measure wall height",
+                "text": "Measure the height of your walls in feet. Standard ceiling height is 8 feet (96 inches)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Measure total wall width",
+                "text": "Measure the total width of all walls you plan to cover. Add up all wall widths in feet."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter pattern repeat",
+                "text": "For patterned wallpaper, enter the pattern repeat in inches (found on the product label). For solid wallpaper, enter 0."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Get your results",
+                "text": "The calculator shows how many double rolls you need. A 4-inch trimming allowance is automatically included."
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff8e1;
+            color: #4e342e;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #5d4037;
+            border-bottom: 2px solid #d7ccc8;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            color: #795548;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2px solid #efebe9;
+            border-radius: 6px;
+            font-size: 18px;
+            transition: border-color 0.3s;
+            background-color: #fafafa;
+        }
+
+        input:focus {
+            border-color: #8d6e63;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #efebe9;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .result-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #3e2723;
+            line-height: 1.2;
+        }
+
+        .details {
+            font-size: 14px;
+            text-align: left;
+            margin-top: 10px;
+            background: #fff;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .btn-clear {
+            width: 100%;
+            padding: 16px;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(108, 117, 125, 0.2);
+            margin-top: 10px;
+        }
+
+        .btn-clear:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-clear:active {
+            transform: translateY(2px);
+        }
+
+        .shop-link {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px 0;
+            text-align: center;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: #ff9900;
+            box-sizing: border-box;
+        }
+
+        .shop-link:hover {
+            background-color: #e68a00;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Wallpaper Calculator</h1>
+
+        <div class="form-group">
+            <label>Wall Height (feet)</label>
+            <input type="number" id="wallHeight" placeholder="e.g. 8" inputmode="decimal" min="0" step="0.5"
+                oninput="calculate()">
+        </div>
+
+        <div class="form-group">
+            <label>Total Wall Width (feet)</label>
+            <input type="number" id="wallWidth" placeholder="e.g. 40" inputmode="decimal" min="0" oninput="calculate()">
+        </div>
+
+        <div class="form-group" style="background:#f0f4c3; padding:10px; border-radius:8px;">
+            <label>Pattern Repeat (inches)</label>
+            <div style="font-size:12px; color:#555; margin-bottom:5px;">*Enter 0 for solid/textured wallpaper. For
+                patterns, enter the repeat length.</div>
+            <input type="number" id="patternRepeat" placeholder="0" value="0" inputmode="decimal" min="0"
+                oninput="calculate()">
+        </div>
+
+        <div class="form-group">
+            <label>Roll Width (inches) <span style="font-size:11px; font-weight:normal;">*Standard US: 20.5" or
+                    27"</span></label>
+            <input type="number" id="rollWidth" value="20.5" inputmode="decimal" min="0" step="0.5"
+                oninput="calculate()">
+        </div>
+
+        <button class="btn-clear" onclick="clearAll()">Clear</button>
+
+        <div class="result-box" id="resultArea">
+            You need approximately...<br>
+            <span class="result-number" id="resultRolls">0</span> double rolls<br>
+
+            <div class="details">
+                <small>
+                    • Number of strips needed: <span id="detailStrips">0</span><br>
+                    • Cut length per strip: <span id="detailLength">0</span> inches<br>
+                    • Includes 4" trimming allowance
+                </small>
+            </div>
+
+            <div style="margin-top:20px;">
+                <a href="https://www.amazon.com/s?k=wallpaper+peel+and+stick&tag=YOUR_AMAZON_ID" target="_blank"
+                    class="shop-link">
+                    Shop Wallpaper on Amazon ➔
+                </a>
+            </div>
+        </div>
+
+        <p class="note">
+            *Based on standard 33ft double rolls.<br>
+            *Results are estimates. Order extra for matching patterns.
+        </p>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get values (US units: feet for dimensions, inches for roll width and repeat)
+            const heightFt = parseFloat(document.getElementById('wallHeight').value);
+            const widthFt = parseFloat(document.getElementById('wallWidth').value);
+            const repeatIn = parseFloat(document.getElementById('patternRepeat').value) || 0;
+            const rollWidthIn = parseFloat(document.getElementById('rollWidth').value);
+
+            if (!heightFt || !widthFt || !rollWidthIn) return;
+
+            // Convert wall dimensions to inches
+            const heightIn = heightFt * 12;
+            const widthIn = widthFt * 12;
+
+            // Add 4 inches for trimming allowance
+            const trimAllowance = 4;
+            let cutLength = heightIn + trimAllowance;
+
+            // Adjust for pattern repeat
+            if (repeatIn > 0) {
+                const repeatCount = Math.ceil(cutLength / repeatIn);
+                cutLength = repeatCount * repeatIn;
+            }
+
+            // Number of strips needed
+            const strips = Math.ceil(widthIn / rollWidthIn);
+
+            // Total length needed in inches
+            const totalInches = strips * cutLength;
+
+            // Convert to feet
+            const totalFeet = totalInches / 12;
+
+            // Standard double roll = 33 feet usable
+            const doubleRolls = Math.ceil(totalFeet / 33);
+
+            // Display results
+            document.getElementById('resultRolls').innerText = doubleRolls;
+            document.getElementById('detailStrips').innerText = strips;
+            document.getElementById('detailLength').innerText = Math.round(cutLength);
+            document.getElementById('resultArea').style.display = 'block';
+        }
+
+        function clearAll() {
+            document.getElementById('wallHeight').value = '';
+            document.getElementById('wallWidth').value = '';
+            document.getElementById('patternRepeat').value = '0';
+            document.getElementById('rollWidth').value = '20.5';
+            document.getElementById('resultArea').style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>
